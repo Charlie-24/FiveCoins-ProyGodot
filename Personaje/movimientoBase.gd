@@ -1,30 +1,50 @@
-#movimiento definitivo izquierda y derecha 
+#funcion saltar añadida 
 
 extends CharacterBody2D
 
-var ppm : int = 24
-var direccion_horizontal : float
+# Variables de movimiento
+@export var speed: float = 200.0
+@export var jump_force: float = 400.0
+@export var gravity: float = 900.0
 
-var gravedad : float = 9.8 * ppm
-var rapidez : float = 3.0 * ppm
+# Variables de animación
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-const JUMP_VELOCITY = -400.0
+# Estado del salto
+var is_jumping: bool = false
 
 func _ready():
-	pass
+    # Iniciar la animación de idle (reposo)
+    animated_sprite.play("idle")
 
-func _input(event):
-	calcular_direccion()
-	if event.is_action_pressed("ui_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+func _process(delta: float) -> void:
+    # Aplicar gravedad
+    if not is_on_floor():
+        velocity.y += gravity * delta
+    else:
+        is_jumping = false
 
-func _physics_process(delta):
-	# Aplica la gravedad en el eje Y
-	velocity.y += gravedad * delta
-	# Actualiza la velocidad horizontal
-	velocity.x = direccion_horizontal * rapidez
-	# Mueve el personaje con las nuevas velocidades
-	move_and_slide()
+    # Movimiento horizontal
+    var direction: float = 0
+    if Input.is_action_pressed("move_left"):  # Tecla A
+        direction = -1
+    if Input.is_action_pressed("move_right"):  # Tecla D
+        direction = 1
 
-func calcular_direccion():
-	direccion_horizontal = Input.get_axis("ui_left", "ui_right")
+    if direction != 0:
+        velocity.x = direction * speed
+        animated_sprite.play("walk")  # Reproducir animación de caminar
+        animated_sprite.flip_h = direction < 0  # Voltear sprite si va a la izquierda
+    else:
+        velocity.x = 0
+        if not is_jumping:
+            animated_sprite.play("idle")  # Reproducir animación de reposo
+
+    # Salto
+    if Input.is_action_just_pressed("jump") and is_on_floor():
+        velocity.y = -jump_force
+        is_jumping = true
+        animated_sprite.play("jump")  # Reproducir animación de salto
+
+    # Aplicar movimiento
+    move_and_slide()
