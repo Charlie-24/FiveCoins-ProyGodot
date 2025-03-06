@@ -1,4 +1,5 @@
-#funcion saltar añadida 
+
+#Animacion Caminar implementada
 
 extends CharacterBody2D
 
@@ -9,42 +10,38 @@ extends CharacterBody2D
 
 # Variables de animación
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera: Camera2D = $Camera2D  # Referencia a la cámara
 
 # Estado del salto
 var is_jumping: bool = false
 
 func _ready():
-    # Iniciar la animación de idle (reposo)
-    animated_sprite.play("idle")
+	# Iniciar la animación de idle (reposo)
+	animated_sprite.play("Caminar")
 
 func _process(delta: float) -> void:
-    # Aplicar gravedad
-    if not is_on_floor():
-        velocity.y += gravity * delta
-    else:
-        is_jumping = false
+	# Aplicar gravedad
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	else:
+		is_jumping = false
 
-    # Movimiento horizontal
-    var direction: float = 0
-    if Input.is_action_pressed("move_left"):  # Tecla A
-        direction = -1
-    if Input.is_action_pressed("move_right"):  # Tecla D
-        direction = 1
+	# Movimiento horizontal
+	var direction: float = Input.get_axis("move_left", "move_right")  # Mejora de código
+	if direction != 0:
+		velocity.x = direction * speed
+		animated_sprite.play("walk")
+		animated_sprite.flip_h = direction < 0
+	else:
+		velocity.x = 0
+		if not is_jumping:
+			animated_sprite.play("idle")
 
-    if direction != 0:
-        velocity.x = direction * speed
-        animated_sprite.play("walk")  # Reproducir animación de caminar
-        animated_sprite.flip_h = direction < 0  # Voltear sprite si va a la izquierda
-    else:
-        velocity.x = 0
-        if not is_jumping:
-            animated_sprite.play("idle")  # Reproducir animación de reposo
+	# Salto
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = -jump_force
+		is_jumping = true
+		animated_sprite.play("jump")
 
-    # Salto
-    if Input.is_action_just_pressed("jump") and is_on_floor():
-        velocity.y = -jump_force
-        is_jumping = true
-        animated_sprite.play("jump")  # Reproducir animación de salto
-
-    # Aplicar movimiento
-    move_and_slide()
+	# Aplicar movimiento
+	move_and_slide()
