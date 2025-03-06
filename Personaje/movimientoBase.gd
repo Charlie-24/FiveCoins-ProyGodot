@@ -1,11 +1,9 @@
-
-#Animacion Caminar implementada
-
+# movimiento definitivo con animaciones incluidas
 extends CharacterBody2D
 
 # Variables de movimiento
-@export var speed: float = 200.0
-@export var jump_force: float = 400.0
+@export var speed: float = 120.0
+@export var jump_force: float = 300.0
 @export var gravity: float = 900.0
 
 # Variables de animación
@@ -17,7 +15,7 @@ var is_jumping: bool = false
 
 func _ready():
 	# Iniciar la animación de idle (reposo)
-	animated_sprite.play("Caminar")
+	animated_sprite.play("Quieto")
 
 func _process(delta: float) -> void:
 	# Aplicar gravedad
@@ -28,20 +26,28 @@ func _process(delta: float) -> void:
 
 	# Movimiento horizontal
 	var direction: float = Input.get_axis("move_left", "move_right")  # Mejora de código
+	velocity.x = direction * speed
+
+	# Animaciones de caminar y idle
 	if direction != 0:
 		velocity.x = direction * speed
-		animated_sprite.play("walk")
+		animated_sprite.play("Caminar")  # Reproducir la animación "Caminar"
 		animated_sprite.flip_h = direction < 0
+		
 	else:
 		velocity.x = 0
-		if not is_jumping:
-			animated_sprite.play("idle")
-
+		# Si el personaje no se mueve, reproducir la animación "idle"
+		animated_sprite.play("Quieto")  # Reproducir la animación "idle"
+		
 	# Salto
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() :
 		velocity.y = -jump_force
 		is_jumping = true
-		animated_sprite.play("jump")
+		# Reproducir la animación de salto
+	
+	if not is_on_floor() :
+		animated_sprite.play("Saltar")		
 
 	# Aplicar movimiento
 	move_and_slide()
+
