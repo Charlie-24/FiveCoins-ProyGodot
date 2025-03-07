@@ -13,10 +13,6 @@ extends CharacterBody2D
 # Estado del salto
 var is_jumping: bool = false
 
-func _ready():
-	# Iniciar la animación de idle (reposo)
-	animated_sprite.play("Quieto")
-
 func _process(delta: float) -> void:
 	# Aplicar gravedad
 	if not is_on_floor():
