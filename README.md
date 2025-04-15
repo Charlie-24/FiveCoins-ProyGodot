@@ -494,10 +494,14 @@ El objetivo es Pasar por Todas las secciones recogiendo todas las monedas, el or
 #### Últimos detalles 
 
 Tras dar por finalizado el proceso de desarrollo, concluimos con el titulo de nuestro juego, este se llamara **FiveCoins**.
-Luego de exportar el proyecto para pasarlo a un ejecutable, Godot nos permite varias formas de exportación. 
+Luego de exportar el proyecto para pasarlo a un ejecutable, Godot nos permite varias formas de exportación, Después de haber exportado solamente el proyecto junto a el archivo base, si lo descargamos, podremos ejecutarlo. 
 
-Para Comprobar la funcionalidad completa, Godot nos proporciona un ejecutable con la consola para revisar el depuramiento, así estará listo para presentar su funcionamiento integro 
+Dentro de la carpeta `/ArchivosJuego/` Se encuentran varios ejecutables de distintas versiones del juego, dentro de cada Versión, Encontramos varios archivos
 
+* `.exe` El ejecutable del juego base
+* `.console.exe` El ejecutable del juego base + depuración por consola 
+* `.pck` Paquete que contiene todos los recursos necesarios para ejecutar el juego
+ 
 ----
 
 ### BIBLIOGRAFÍA

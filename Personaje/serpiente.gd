@@ -1,6 +1,6 @@
 extends CharacterBody2D 
 
-@export var speed: float = 60.0
+@export var speed: float = 40.0
 @export var gravity: float = 900.0
 var moving_left = true
 var can_turn = true
@@ -34,11 +34,10 @@ func check_edge():
 		await get_tree().create_timer(0.2).timeout
 		can_turn = true
 
-func _loselife():
+func _loselife(enemyposx: float) -> void:
 	pass
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body._loselife()
+		body._loselife(position.x)
 		pass
-

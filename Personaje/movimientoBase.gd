@@ -35,7 +35,6 @@ func _process(delta: float) -> void:
 	if push_back_timer <= 0:
 		velocity.x = direction * speed * run_multiplier
 	else:
-		# Si estamos en empuje, no se considera el movimiento normal
 		pass
 
 	# Animaciones de caminar y predeterminada
@@ -76,8 +75,15 @@ func _loselife(enemyposx: float) -> void:
 	
 	velocity.y = -120  # Impulsa hacia arriba
 	
-	lifes=lifes -1
-	print("Perdemos vida, visa actual: "+str(lifes))
+	lifes -= 1
+	print("Perdemos vida, vida actual: " + str(lifes))
+	
+	# Intentar obtener el nodo CanvasLayer de forma más flexible
+	var canvasLayer = get_node("/root/Escenario1/CanvasLayer")  # Asumiendo que CanvasLayer está en la escena
+	if canvasLayer != null:
+		canvasLayer.handleHearts(lifes)
+	else:
+		print("CanvasLayer no encontrado.")
 	
 	if lifes <= 0:
 		get_tree().reload_current_scene()  # Si se pierde toda la vida, recargar la escena
