@@ -13,7 +13,9 @@
 
  - Expectativas iniciales del desarrollo ( 1º Trimestre )
  
- - Proceso del desarrollo (2º Trimestre )
+ - Proceso del desarrollo ( 2º Trimestre )
+
+ - Final de Desarrollo ( 3º Trimestre ) 
 
 
 3. Desarrollo realizado
