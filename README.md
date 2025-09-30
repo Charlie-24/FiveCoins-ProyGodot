@@ -67,18 +67,18 @@ El proyecto está diseñado para ser **ampliable y modificable**, sirviendo como
 ## Capturas del Juego
 
 **Estructura del nodo Player:**  
-![Player Node](FotosProyectoMK/1ºTrim/cp1.png)  
+![Player Node](PicturesMK/1ºTrim/cp1.png)  
 
 **Diseño de nivel con TileMap:**  
-![Nivel de ejemplo](FotosProyectoMK/3ºTrim/cap51.png)  
-![Nivel de ejemplo](FotosProyectoMK/3ºTrim/cap52.png)
-![Nivel de ejemplo](FotosProyectoMK/3ºTrim/cap53.png)    
+![Nivel de ejemplo](PicturesMK/3ºTrim/cap51.png)  
+![Nivel de ejemplo](PicturesMK/3ºTrim/cap52.png)
+![Nivel de ejemplo](PicturesMK/3ºTrim/cap53.png)    
 
 **Interfaz de usuario (HUD, monedas y vidas):**  
-![HUD](FotosProyectoMK/3ºTrim/cap33.png)  
+![HUD](PicturesMK/3ºTrim/cap33.png)  
 
 **Menú principal:**  
-![Menú Principal](FotosProyectoMK/3ºTrim/cap39.png)  
+![Menú Principal](PicturesMK/3ºTrim/cap39.png)  
 
 ---
 
