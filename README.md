@@ -34,14 +34,14 @@ El proyecto está diseñado para ser **ampliable y modificable**, sirviendo como
 
 ## Fases de Desarrollo
 
-### Fase 1 – Prototipo Inicial (1º Trimestre)
+### Fase 1 – Prototipo Inicial 
 - Aprendizaje de los conceptos básicos de Godot.  
 - Creación de escena de prueba con:  
   - Personaje principal usando nodos (`AnimatedSprite2D`, `CollisionShape2D`, `Camera2D`).  
   - Nivel básico con Sprites y TileMaps.  
 - Implementación de primeras animaciones y controles.
 
-### Fase 2 – Desarrollo Intermedio (2º Trimestre)
+### Fase 2 – Desarrollo Intermedio 
 - Ampliación de movimientos y animaciones del personaje.  
 - Construcción de escenarios de prueba para validar mecánicas.  
 - Uso de `TileMap` con propiedades de profundidad (`Z index`) y físicas.  
@@ -51,7 +51,7 @@ El proyecto está diseñado para ser **ampliable y modificable**, sirviendo como
   - `move_right` → `D`  
   - `jump` → `Space`  
 
-### Fase 3 – Desarrollo Final (3º Trimestre)
+### Fase 3 – Desarrollo Final 
 - Finalización del juego principal **FiveCoins**.  
 - Nuevas mecánicas:  
   - Correr con `Shift`.  
@@ -70,10 +70,12 @@ El proyecto está diseñado para ser **ampliable y modificable**, sirviendo como
 ![Player Node](FotosProyectoMK/1ºTrim/cp1.png)  
 
 **Diseño de nivel con TileMap:**  
-![Nivel de ejemplo](FotosProyectoMK/2ºTrim/cap17.png)  
+![Nivel de ejemplo](FotosProyectoMK/3ºTrim/cap51.png)  
+![Nivel de ejemplo](FotosProyectoMK/3ºTrim/cap52.png)
+![Nivel de ejemplo](FotosProyectoMK/3ºTrim/cap53.png)    
 
 **Interfaz de usuario (HUD, monedas y vidas):**  
-![HUD](FotosProyectoMK/3ºTrim/cap30.png)  
+![HUD](FotosProyectoMK/3ºTrim/cap33.png)  
 
 **Menú principal:**  
 ![Menú Principal](FotosProyectoMK/3ºTrim/cap39.png)  
@@ -105,7 +107,6 @@ El proyecto está diseñado para ser **ampliable y modificable**, sirviendo como
 ## Recursos y Referencias
 
 - [ChatGPT](https://chatgpt.com/) – Resolución de dudas técnicas sobre Godot.  
-- [LuisCanary - YouTube](https://www.youtube.com/@LuisCanary) – Tutoriales de desarrollo de videojuegos.  
 - [Assets usados](https://essssam.itch.io/rocky-roads) – Recursos gráficos.  
 - [Aprende Godot en 7 minutos](https://www.youtube.com/watch?v=Wa4yO92SXkc&list=LL&index=10&t=217s) – Fundamentos de Godot.  
 
